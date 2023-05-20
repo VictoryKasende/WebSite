@@ -1,0 +1,129 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title%}Realisation{% endblock title%}
+
+{% block body %}
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary py-5 mb-5 page-header">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="display-3 text-white animated slideInDown">Nos Realisations</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a class="text-white" href={% url 'appSalama:home' %}>Accueil</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Realisations</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+    <!-- Contact Start -->
+    {% comment %} <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4">
+              <!-- Blog Section Begin -->
+              <section class="blog-section spad">
+                <div class="container">
+                    <div class="row">
+                        {% for r in realisations %}
+                        <div class="col-lg-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="blog-item overflow-hidden">
+                                        
+                                        <img class="" src={{r.image.url}} alt={{r.titre}} width="100%">
+                                        
+                                        <h1 class="bi-tag bg-gradient text-light">{{r.titre}}</h1>
+                                            
+                                        <div class="bi-text">
+                                            <h5 ><a href={% url 'appSalama:realisation' slug=r.slug %} class="text-light">{{r.description|truncatewords:20}}</a></h5>
+                                            <span class="text-light"><i class="fa fa-clock-o text-light"></i >{{r.date}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+              </section>
+            </div>
+        </div>
+    </div> {% endcomment %}
+
+     <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4">
+                
+              <section id="main-container" class="main-container">
+                  <div class="container">
+                    <div class="row">
+                
+                      <div class="col-lg-4 order-1 order-lg-0">
+                
+                        <div class="sidebar sidebar-left">
+                          <div class="widget recent-posts">
+                            <h3 class="widget-title">DERNIERES REALISATIONS</h3>
+                            <ul class="list-unstyled">
+                              {% for dernier in dernieres %}
+                                <li class="d-flex align-items-center">
+                                  <div class="posts-thumb">
+                                    <a href="#"><img loading="lazy" alt="img" src={{dernier.image.url}}></a>
+                                  </div>
+                                  <div class="post-info">
+                                    <h4 class="entry-title">
+                                      <a href={% url 'appSalama:realisation' slug=dernier.slug %}>{{ dernier.titre }}</a>
+                                    </h4>
+                                  </div>
+                                </li><!-- 1st post end-->
+                              {% endfor %}
+
+                          </div><!-- Recent post end -->
+                
+                          <div class="widget">
+                            <h3 class="widget-title">OPTIONS</h3>
+                            <ul class="arrow nav nav-tabs">
+                              {% for r in realisations %}
+                              <li>
+                                <a href={% url 'appSalama:realisation_option' option=r.option %}>
+                                {% ifchanged r.option%}
+                                    {{r.option}}
+                                {% endifchanged %}
+                                </a>
+                              </li>
+                              {% endfor%}
+                            </ul>
+                          </div><!-- Categories end -->
+                
+                        </div><!-- Sidebar end -->
+                      </div><!-- Sidebar Col end -->
+                
+                      <div class="col-lg-8 mb-5 mb-lg-0 order-0 order-lg-1">
+                        {% for r in realisations %}
+                        <div class="blog-item overflow-hidden">
+                                        
+                            <img class="" src={{r.image.url}} alt={{r.titre}} width="100%">
+                            
+                            <h1 class="bi-tag bg-gradient text-light">{{r.titre}}</h1>
+                                
+                            <div class="bi-text">
+                                <h5 ><a href={% url 'appSalama:realisation' slug=r.slug %} class="text-light">{{r.description|truncatewords:20}}</a></h5>
+                                <span class="text-light"><i class="fa fa-clock-o text-light"></i >{{r.date}}</span>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <div class="post-footer mt-5">
+                               <a class="btn btn-prim py-3 px-5 mt-2" href={% url 'appSalama:realisation' %}>Afficher toutes les realisations</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </section>
+    
+            </div>
+        </div>
+    </div>
+{% endblock body %}

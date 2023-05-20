@@ -1,0 +1,180 @@
+{% extends 'baseAdmin.html' %}
+{% load static %}
+{% block title%}ITS - Compte{% endblock title%}
+
+{% block main %}
+
+	<main class="content">
+		<div class="container-fluid p-0">
+			<div style="display:flex; justify-content: space-between">				
+				<h1 class="h3 mb-3"><strong>Admin</strong> Articles</h1>
+				<a href={% url 'appSalama:article' %} type="submit" class="btn btn-primary mb-3" >Voir le site</a>
+			</div>
+			<div class="row">
+				<div class="card flex-fill">
+					<div class="row">
+						<div class="row" style="padding-top: 40px;">
+							<div class="col-9">
+								<form>
+									<div class="row">
+										<div class="col">
+											<input class="form-control form-control-lg" type="text" name="nom" placeholder="Nom de l'article" />
+										</div>
+										<div class="form-group col">
+											<select id="inputState" class="form-control form-control-lg">
+												<option selected>Categorie...</option>
+												<option>...</option>
+											</select>
+										</div>
+										<div class="form-group col">
+											<select id="inputState" class="form-control form-control-lg">
+												<option selected>Mois...</option>
+												<option>...</option>
+											</select>
+										</div>
+										<div class="form-group col">
+											<select id="inputState" class="form-control form-control-lg">
+												<option selected>Statut...</option>
+												<option>...</option>
+											</select>
+										</div>
+										<div class="col">
+											<a type="submit" class="btn btn-lg btn-primary">
+												<i data-feather="filter"></i>
+											</a>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="col-1">
+								<a class="btn btn-lg btn-primary" href={% url 'appAdmin:article_descendant'%}><i class="align-middle" data-feather="chevrons-down"></i></a>
+							</div>
+							<div class="col-1">
+								<a class="btn btn-lg btn-primary" href={% url 'appAdmin:article_ascendant'%}><i class="align-middle" data-feather="chevrons-up"></i></a>
+							</div>
+							<div class="col-1">
+								<a class="btn btn-lg btn-primary" href="{% url 'appAdmin:article_create'%}"><i data-feather="plus-circle"></i></a>
+							</div>
+						</div>								
+						<div class="card-header">
+							<h5 class="card-title mb-0">Tableau des articles</h5>
+						</div>										
+							<table class="table table-hover my-0">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Image</th>
+									<th>Titre</th>
+									<th>Date</th>
+									<th>Categorie</th>
+									<th>Publie</th>
+									<th>Contenu</th>
+									<th class="d-none d-md-table-cell">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for article in articles %}
+								<tr>
+									<td>{{forloop.counter}}</td>
+									<td><img loading="lazy" src={{ article.image.url }} class="img-fluid" style="width: 100px" alt="post-image"></td>
+									<td>{{article.titre}}</td>
+									<td>{{article.date_creation}}</td>
+									<td>{{article.categorie}}</td>
+									<td>{{article.publié}}</td>
+									<td>{{article.paragraphe1}}</td>
+									<td><span class="badge bg-warning"></span></td>
+									<td class="d-none d-md-table-cell">
+										<a class="btn btn-secondary" href= ><i data-feather="message-circle"></i></a>
+										<a class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editmodal" href="#"><i data-feather="edit"></i></a>
+										<a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal-{{forloop.counter}}" href="#"><i data-feather="trash-2"></i></a>
+									</td>
+								</tr>
+								{% endfor%}
+							</tbody>
+						</table>
+					</div>
+			</div>
+		</div>
+	</main>
+
+	{% comment %} <!-- Edit modal-->
+	<div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Ajouter un utilisateur</h5>
+				<button type="button" class="btn-close" id="close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form action="" method="POST">
+					{% csrf_token %}
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Nom</label>
+							<input name="nom" type="text" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Post-nom</label>
+							<input name="post_nom" type="text" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Prenom</label>
+							<input name="prenom" type="text" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label for="id_promotion"> Promotion</label>
+							<select class="form-control" name="promotion" required id="id_promotion">
+								<option value selected>-------</option>
+								<option value="1" class="form-control" >Preparatoire</option>
+								<option value="2" class="form-control">L1</option>
+								<option value="3" class="form-control" >L2</option>
+								<option value="4" class="form-control">L3</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="id_filiere">Filiere :</label>
+							<select class="form-control" name="filiere" id="id_filiere">
+								<option class="form-control" value="" selected>---------</option>
+								<option class="form-control" value="1">Génie logiciel Systèmes informatiques</option>
+								<option class="form-control" value="2">Génie logiciel Gestion informatique</option>
+								<option class="form-control" value="3">Réseaux et Administration système</option>
+								<option class="form-control" value="4">Réseaux et Télécommunications</option>
+								<option class="form-control" value="5">Design et Multimédia</option>
+							</select>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-danger" data-bs-dismiss="modal" value="Retour">
+						<input type="submit" class="btn btn-primary" id="save" value="Ajouter">
+					</div>
+				</form>
+			</div>
+		</div>
+		</div>
+	</div> {% endcomment %}
+
+	{% comment %} <!-- delete modal -->
+	{% for article in articles %}
+	<div class="modal fade" id="deleteModal-{{ forloop.counter }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Supprimer un article</h5>
+					<button type="button" class="btn-close" id="close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<form action={% url 'appAdmin:delete' titre=article.titre%} method="POST">
+					{% csrf_token %}
+					<div class="modal-body">
+						<p> Voulez-vous supprimer <b>"{{article.titre}}"</b> ?</p>
+						<p class="text-warning"><small>Cette action est irreversible</small></p>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-danger" data-bs-dismiss="modal" value="Retour">
+						<input type="submit" class="btn btn-primary" id="save" value="Supprimer">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div> 
+	{% endfor%}{% endcomment %}
+{% endblock main%}

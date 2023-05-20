@@ -1,0 +1,23 @@
+:root {
+    --primary: #0093DD;
+    --light: #F0FBFC;
+    --dark: #181d38;
+}
+
+/* Modal */
+.modal-header{
+    background-color: var(--primary);
+}
+
+.modal-header h5{
+    font-size: 20px;
+    color: white;
+}
+
+.modal-footer #save{
+    background-color: var(--primary);
+}
+
+.modal-header #close{
+    color: var(--light);
+}

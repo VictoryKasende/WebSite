@@ -1,0 +1,182 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title%}article{% endblock title%}
+
+{% block body %}
+
+  <!-- Header Start -->
+    <div class="container-fluid bg-primary py-5 mb-5 page-header">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h2 class="text-white animated slideInDown">{{article.titre}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Contact Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4">
+                
+              <section id="main-container" class="main-container">
+                <div class="container">
+                  <div class="row">
+              
+                    <div class="col-lg-8 mb-5 mb-lg-0">
+              
+                      <div class="post-content post-single">
+                        <div class="post-media post-image">
+                          <img loading="lazy" src={{article.image.url}} class="img-fluid" alt="post-image">
+                        </div>
+              
+                        <div class="post-body">
+                          <div class="entry-header">
+                            <div class="post-meta">
+                              <span class="post-author">
+                                <i class="far fa-user"></i>Admin
+                              </span>
+                              <span class="post-cat">
+                                <i class="far fa-folder-open"></i>News
+                              </span>
+                              <span class="post-meta-date"><i class="far fa-calendar"></i>{{article.date_creation}}</span>
+                              <span class="post-comment"><i class="far fa-comment"></i> {{article.get_commentaires}} Commentaires</a></span>
+                            </div>
+                            <h2 class="entry-title color-text">
+                              {{article.titre}}
+                            </h2>
+                          </div><!-- header end -->
+              
+                          <div class="entry-content" style="text-align: justify;">
+                            <p>{{article.paragraphe1}}</p>
+              
+                            <p>{{article.paragraphe2}}</p>
+              
+                            <p>{{article.paragraphe3}}</p>
+              
+                            <blockquote>
+                              <p>{{article.paragraphe4}}</p>
+                            </blockquote>
+                            
+                          </div>
+              
+                          <div class="tags-area d-flex align-items-center justify-content-between">
+                            <div class="post-tags">
+                              
+                            </div>
+                            <div class="share-items">
+                              <ul class="post-social-icons list-unstyled">
+                                <li class="social-icons-head">Rejoignez-nous:</li>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                              </ul>
+                            </div>
+                          </div>
+              
+                        </div><!-- post-body end -->
+                      </div><!-- post content end -->
+              
+                        <div class="comments-form border-box">
+                        <h3 class="title-normal">Ajouter un commentaire</h3>
+
+                        {% csrf_token %}
+                        <form method = "POST">
+                          {% csrf_token %}
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="name">{{ form.nom }}</label>
+                              </div>
+                            </div><!-- Col 4 end -->
+
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="email">{{ form.email }}</label>
+                              </div>
+                            </div>
+
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="website">{{ form.website }}</label>
+                              </div>
+                            </div>
+                          </div><br>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <label for="message"><textarea class="form-control required-field" id="message" placeholder="Votre  Commentaire" rows="4" cols="89" required></textarea></label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="clearfix">
+                            <button class="btn btn-prim" type="submit" aria-label="post-comment">Envoyer</button>
+                          </div>
+                        </form><!-- Form end -->
+                      </div><!-- Comments form end -->
+                    </div><!-- Content Col end -->
+                    <div class="col-lg-4 order-1 order-lg-0">
+                
+                      <div class="sidebar sidebar-left">
+                        <div class="widget recent-posts">
+                          <h3 class="widget-title">DERNIERS ARTICLES</h3>
+                          <ul class="list-unstyled">
+                            <ul class="list-unstyled">
+                              {% for dernier in derniers %}
+                                <li class="d-flex align-items-center">
+                                  <div class="posts-thumb">
+                                    <a href><img loading="lazy" alt="img" src={{dernier.image.url}}></a>
+                                  </div>
+                                  <div class="post-info">
+                                    <h4 class="entry-title">
+                                      <a href={% url 'appSalama:article' slug=dernier.slug %}>{{ dernier.titre }}</a>
+                                    </h4>
+                                  </div>
+                                </li><!-- 1st post end-->
+                              {% endfor %}
+                            </ul>
+                          </ul>
+                        </div><!-- Recent post end -->
+              
+                        <div class="widget">
+                          <h3 class="widget-title">CATÉGORIES</h3>
+                          <ul class="arrow nav nav-tabs">
+                            {% for art in articles %}
+                            <li><a href={% url 'appSalama:categorie_article' categorie=art.categorie%}>{{art.categorie}}</a></li>
+                            {% endfor%}
+                          </ul>
+                        </div><!-- Categories end -->
+              
+                        <div class="widget">
+                          <h3 class="widget-title">Archives </h3>
+                          <ul class="arrow nav nav-tabs">
+                            {% for archive in archives %}
+                            <li>
+                              <a href={% url 'appSalama:archive_article' mois=archive.date|date:"M" annee=archive.date|date:"Y" %}>
+                              {{archive.date|date:"M Y"|upper}}
+                              </a>
+                            </li>
+                            {% endfor %}
+                          </ul>
+                        </div><!-- Archives end -->
+              
+                        
+              
+                      </div><!-- Sidebar end -->
+                    </div><!-- Sidebar Col end -->
+                    
+              
+                  </div><!-- Main row end -->
+              
+                </div><!-- Conatiner end -->
+              </section><!-- Main container end -->
+    
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+{% endblock body %}

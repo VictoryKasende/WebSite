@@ -1,0 +1,142 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title%}Article{% endblock title%}
+
+{% block body %}
+  <!-- Header Start -->
+  <div class="container-fluid bg-primary py-5 mb-5 page-header">
+      <div class="container py-5">
+          <div class="row justify-content-center">
+              <div class="col-lg-10 text-center">
+                  <h1 class="display-3 text-white animated slideInDown">Articles</h1>
+                  <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb justify-content-center">
+                          <li class="breadcrumb-item"><a class="text-white" href={% url 'appSalama:home'%}>Accueil</a></li>
+                          <li class="breadcrumb-item text-white active" aria-current="page">Articles</li>
+                      </ol>
+                  </nav>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Header End -->
+
+    <!-- Contact Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4">
+                
+              <section id="main-container" class="main-container">
+                  <div class="container">
+                    <div class="row">
+                
+                      <div class="col-lg-4 order-1 order-lg-0">
+                
+                        <div class="sidebar sidebar-left">
+                          <div class="widget recent-posts">
+                            <h3 class="widget-title">DERNIERS ARTICLES</h3>
+                            <ul class="list-unstyled">
+                              {% for dernier in derniers %}
+                                <li class="d-flex align-items-center">
+                                  <div class="posts-thumb">
+                                    <a href="#"><img loading="lazy" alt="img" src={{dernier.image.url}}></a>
+                                  </div>
+                                  <div class="post-info">
+                                    <h4 class="entry-title">
+                                      <a href={% url 'appSalama:article' slug=dernier.slug %}>{{ dernier.titre }}</a>
+                                    </h4>
+                                  </div>
+                                </li><!-- 1st post end-->
+                              {% endfor %}
+                            </ul>
+
+                          </div><!-- Recent post end -->
+                
+                          <div class="widget">
+                            <h3 class="widget-title">CATÉGORIES</h3>
+                            <ul class="arrow nav nav-tabs">
+                              {% for art in articles %}
+                              <li>
+                                <a href={% url 'appSalama:categorie_article' categorie=art.categorie%}>
+                                {% ifchanged art.categorie %}
+                                  {{art.categorie}}
+                                {% endifchanged %}
+                                </a>
+                              </li>
+                              {% endfor%}
+                            </ul>
+                          </div><!-- Categories end -->
+                
+                          <div class="widget">
+                            <h3 class="widget-title">Archives </h3>
+                            <ul class="arrow nav nav-tabs">
+                              {% for archive in archives %}
+                              <li>
+                                <a href={% url 'appSalama:archive_article' mois=archive.date|date:"M" annee=archive.date|date:"Y" %}>
+                                {{archive.date|date:"M Y"|upper}}
+                                </a>
+                              </li>
+                              {% endfor %}
+                            </ul>
+                          </div><!-- Archives end -->
+                        </div><!-- Sidebar end -->
+                      </div><!-- Sidebar Col end -->
+                
+                      <div class="col-lg-8 mb-5 mb-lg-0 order-0 order-lg-1">
+                        {% for article in articles %}
+                          <div class="post">
+                          <div class="post-media post-image">
+                            <img loading="lazy" src={{ article.image.url }} class="img-fluid" alt="post-image">
+                          </div>
+
+                          <div class="post-body">
+                            <div class="entry-header">
+                              <div class="post-meta">
+                                <span class="post-author">
+                                  <i class="far fa-user"></i>Admin
+                                </span>
+                                <span class="post-cat">
+                                  <i class="far fa-folder-open"></i>News
+                                </span>
+                                <span class="post-meta-date"><i class="far fa-calendar"></i>{{ article.date_creation }}</span>
+                                <span class="post-comment"><i class="far fa-comment"></i> {{ article.get_commentaires }} Commentaires</span>
+                              </div>
+                              <h2 class="entry-title ">
+                                <a class="color-text" href={% url 'appSalama:article' slug=article.slug %} >{{ article.titre }}</a>
+                              </h2>
+                            </div><!-- header end -->
+
+                            <div class="entry-content" style="text-align: justify;">
+                              <p>{{ article.paragraphe1|truncatewords:100 }}</p>
+                            </div>
+
+                            <div class="post-footer">
+                              <a href={% url 'appSalama:article' slug=article.slug %} class="btn btn-prim">Lire la suite</a>
+                            </div>
+
+                          </div><!-- post-body end -->
+                        </div><!-- 1st post end -->
+                        {% endfor %}
+                        
+                        <nav class="paging" aria-label="Page navigation example">
+                          <ul class="pagination">
+                            <li class="page-item"><a class="page-link color-text" href="#"><i class="fas fa-angle-double-left"></i></a></li>
+                            <li class="page-item"><a class="page-link color-text" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link color-text" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link color-text" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link color-text" href="#"><i class="fas fa-angle-double-right"></i></a></li>
+                          </ul>
+                        </nav>
+                
+                      </div><!-- Content Col end -->
+                
+                    </div><!-- Main row end -->
+                
+                  </div><!-- Container end -->
+              </section><!-- Main container end -->
+    
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+{% endblock body %}

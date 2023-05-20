@@ -1,0 +1,72 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title%}Infrastructure{% endblock title%}
+
+{% block body %}
+<!-- Header Start -->
+  <div class="container-fluid bg-primary py-5 mb-5 page-header">
+      <div class="container py-5">
+          <div class="row justify-content-center">
+              <div class="col-lg-10 text-center">
+                  <h1 class="display-3 text-white animated slideInDown">Nos Infrastructures</h1>
+                  <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb justify-content-center">
+                          <li class="breadcrumb-item"><a class="text-white" href={% url 'appSalama:home'%}>Accueil</a></li>
+                          <li class="breadcrumb-item text-white active" aria-current="page">Nos Infrastructures</li>
+                      </ol>
+                  </nav>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Header End -->
+
+
+  <!-- Contact Start -->
+  <div class="container-xxl py-5">
+      <div class="container-fluid">
+          <div class="row g-4">
+            <section id="main-container" class="main-container">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="shuffle-btn-group">
+                      <label class="active text-white" for="all">
+                        <input type="radio" name="shuffle-filter" id="all" value="all" checked="checked">Voir tous
+                      </label>
+                      {% for i in infrastructures %}
+                        <a class=" me-2 text-danger" style="padding: 10px;" href={% url 'appSalama:infrastructure' categorie=i.categorie %}>{{i.categorie}}</a>
+                      {% endfor %}
+                    </div>
+                    <div class="row shuffle-wrapper">
+                      <div class="col-1 shuffle-sizer"></div>
+                      <div class="row">
+                        {% for i in infrastructures %}
+                        <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;government&quot;,&quot;healthcare&quot;]">
+                          <div class="project-img-container">
+                            <a class="gallery-popup" href={{i.image.url}}>
+                              <img class="img-fluid" src={{i.image.url}} alt="project-image">
+                              <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+                            </a>
+                            <div class="project-item-info">
+                              <div class="project-item-info-content">
+                                <h3 class="project-item-title">
+                                  <a href={{i.image.url}}>{{i.titre}}</a>
+                                </h3>
+                                <a href={% url 'appSalama:infrastructure' categorie=i.categorie %} class="project-cat p-3 fs-5 text-white">{{i.categorie}}</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+      </div>
+  </div>
+  <!-- Contact End -->
+  {% endblock body %}

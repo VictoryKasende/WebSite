@@ -1,0 +1,119 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title%}Inscription{% endblock title%}
+
+{% block body %}
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary py-5 mb-5 page-header">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="display-3 text-white animated slideInDown">INSCRIPTION</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Accueil</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">INSCRIPTION</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Contact Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="bg-white text-center color-text px-3">Formulaire d'inscription</h1>
+            </div><br>
+            <div class="row g-4">
+                <di class="col-lg-2 col-md-1"></di>
+                <div class="col-lg-8 col-md-10 wow fadeInUp" data-wow-delay="0.5s">
+                    {% load crispy_forms_tags %}
+                    {% csrf_token %}
+                    <form method = "POST">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    {{ form.nom }}
+                                    <label for="name">Nom</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    {{ form.post_nom }}
+                                    <label for="name">Post-nom</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    {{ form.prenom }}
+                                    <label for="name">Prénom</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-floating">
+
+                                    {{ form.genre|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    {{ form.date_naissance }}
+                                    <label for="subject">Date de naissance</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    {{ form.adresse }}
+                                    <label for="subject">Adresse</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    {{ form.nom_responsable }}
+                                    <label for="text">Nom du responsable</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    {{ form.religion }}
+                                    <label for="text">Religion</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    {{ form.nom_etablissement }}
+                                    <label for="text">Nom de l’établissement</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    {{ form.pourcentage}}
+                                    <label for="text">Pourcentage</label>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    {{ form.motif }}
+                                    <label for="message">Raison d’avoir choisi salama</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-prim w-100 py-3" type="submit">Envoyer</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+{% endblock body %}

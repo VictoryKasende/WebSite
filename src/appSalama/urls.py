@@ -1,5 +1,5 @@
 from django.conf.urls.static import static
-from django.urls import path
+from django.urls import path, include
 from WebSite import settings
 from appSalama.views import *
 
@@ -21,4 +21,9 @@ urlpatterns = [
     path('contact/', contact, name="contact"),
     path('login/', connexion, name="connexion"),
     path('option/<str:slug>/', option, name="option"),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    #path('jet/', include('jet.urls', 'jet')),
+
+]
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

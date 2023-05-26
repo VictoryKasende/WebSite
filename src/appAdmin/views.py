@@ -1,20 +1,19 @@
-""" from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView
 from appAdmin.forms import *
 from appSalama.models import *
 
 
-class IndexListView(ListView):
-
-    #Compte le nombre d'objets pour chaque modele#
+class IndexListView(TemplateView):
+    
+    """Compte le nombre d'objets pour chaque modele"""
     template_name = "appAdmin/index.html"
-    context_object_name = "my_data"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['nbre_article'] = Article.objects.all().count()
         context['nbre_inscription'] = Inscription.objects.all().count()
-        context['nbre_partenaire'] = Infrastructure.objects.all().count()
+        context['nbre_partenaire'] = Partenaire.objects.all().count()
         context['nbre_infrastructure'] = Infrastructure.objects.all().count()
         context['nbre_formation'] = Formation.objects.all().count()
         context['nbre_realisation'] = Realisation.objects.all().count()
@@ -25,10 +24,9 @@ class IndexListView(ListView):
         
         return context
 
-
 class ArticleListView(ListView):
 
-    #Afficher les articles, filtre les articles#
+    """Afficher les articles, filtre les articles"""
     model = Article
     template_name = "appAdmin/articles.html"
     form_class = ArticleFilter
@@ -45,29 +43,30 @@ class ArticleListView(ListView):
         if order_decroissante:
             return queryset.order_by(order_decroissante)
         
-    def get_context_data(self, **kwargs: Any):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         nom = self.request.GET.get("nom")
-        categorie = self.request.GET.get('----')
-        mois = self.request.GET.get("-----")
-        statut = self.request.GET.get("----")
+        categorie = self.request.GET.get("categorie")
+        mois = self.request.GET.get("mois")
+        statut = self.request.GET.get("status")
 
         if nom:
             context['articles'] = context['articles'].filter(titre__icontains=nom)
         
         if categorie:
             context['articles'] = context['articles'].filter(categorie__icontains=categorie)
-
+        """
         if mois:
             context['articles'] = context['articles'].filter(date_creation__month=mois)
 
         if statut:
-            context['articles'] = context['articles'].filter(publié=statut)
+            context['articles'] = context['articles'].filter(publié=statut) """
 
         context['nom_input'] = nom
         context['categorie_input'] = categorie
         context['mois_input'] = mois
         context['statut_input'] = statut
+        context["form"] = self.form_class()
         
         return context
 
@@ -77,14 +76,14 @@ class ArticleCreateView(CreateView):
     #Cree un article#
     model = Article
     template_name = "appAdmin/a.html"
-    #form_class = PartenaireForm
-    fields = "__all__"
+    form_class = ArticleForm
+    #fields = "__all__"
     success_url = reverse_lazy('appAdmin:article')
 
-    def form_valid(self, form):
+    """ def form_valid(self, form):
         if self.request.user.is_authenticated:
             form.instance.user = self.request.user
-        return super().form_valid(form)
+        return super().form_valid(form) """
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -94,7 +93,6 @@ class ArticleCreateView(CreateView):
 
 class ArticleUpdateView(UpdateView):
 
-    #Modifier un article#
     model = Article
     template_name = "appAdmin/a.html"
     form_class = ArticleForm
@@ -108,13 +106,12 @@ class ArticleUpdateView(UpdateView):
 
 class ArticleDeleteView(DeleteView):
 
-    #Supprimer un article#
     model = Article
-    #template_name = ""
+    template_name = "appAdmin/articles.html"
     context_object_name = "article"
     success_url = reverse_lazy("appAdmin:article")
 
-
+"""
 class InscriptionListView(ListView):
 
     #Afficher les inscriptions, filtre les inscriptions#

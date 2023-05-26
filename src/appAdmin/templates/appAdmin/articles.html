@@ -15,42 +15,35 @@
 					<div class="row">
 						<div class="row" style="padding-top: 40px;">
 							<div class="col-9">
-								<form>
+								{% load crispy_forms_tags %}
+                    			{% csrf_token %}
+								<form method="GET"> 
 									<div class="row">
 										<div class="col">
-											<input class="form-control form-control-lg" type="text" name="nom" placeholder="Nom de l'article" />
+											{{form.nom}}
 										</div>
 										<div class="form-group col">
-											<select id="inputState" class="form-control form-control-lg">
-												<option selected>Categorie...</option>
-												<option>...</option>
-											</select>
+											{{ form.categorie|as_crispy_field }}
 										</div>
 										<div class="form-group col">
-											<select id="inputState" class="form-control form-control-lg">
-												<option selected>Mois...</option>
-												<option>...</option>
-											</select>
+											{{ form.mois|as_crispy_field }}
 										</div>
 										<div class="form-group col">
-											<select id="inputState" class="form-control form-control-lg">
-												<option selected>Statut...</option>
-												<option>...</option>
-											</select>
+											{{form.status|as_crispy_field}}
 										</div>
 										<div class="col">
-											<a type="submit" class="btn btn-lg btn-primary">
+											<button type="submit" class="btn btn-lg btn-primary">
 												<i data-feather="filter"></i>
-											</a>
+											</button>
 										</div>
 									</div>
 								</form>
 							</div>
 							<div class="col-1">
-								<a class="btn btn-lg btn-primary" href={% url 'appAdmin:article_descendant'%}><i class="align-middle" data-feather="chevrons-down"></i></a>
+								<a class="btn btn-lg btn-primary" href="?order_by/decroissant"><i class="align-middle" data-feather="chevrons-down"></i></a>
 							</div>
 							<div class="col-1">
-								<a class="btn btn-lg btn-primary" href={% url 'appAdmin:article_ascendant'%}><i class="align-middle" data-feather="chevrons-up"></i></a>
+								<a class="btn btn-lg btn-primary" href="?order_by/croissant"><i class="align-middle" data-feather="chevrons-up"></i></a>
 							</div>
 							<div class="col-1">
 								<a class="btn btn-lg btn-primary" href="{% url 'appAdmin:article_create'%}"><i data-feather="plus-circle"></i></a>
@@ -68,7 +61,10 @@
 									<th>Date</th>
 									<th>Categorie</th>
 									<th>Publie</th>
-									<th>Contenu</th>
+									<th>section1</th>
+									{% comment %} <th>section2</th>
+									<th>section3</th>
+									<th>section4</th> {% endcomment %}
 									<th class="d-none d-md-table-cell">Action</th>
 								</tr>
 							</thead>
@@ -81,11 +77,14 @@
 									<td>{{article.date_creation}}</td>
 									<td>{{article.categorie}}</td>
 									<td>{{article.publié}}</td>
-									<td>{{article.paragraphe1}}</td>
+									<td>{{article.section1}}</td>
+									{% comment %} <td>{{article.section2}}</td>
+									<td>{{article.section3}}</td>
+									<td>{{article.section4}}</td> {% endcomment %}
 									<td><span class="badge bg-warning"></span></td>
 									<td class="d-none d-md-table-cell">
 										<a class="btn btn-secondary" href= ><i data-feather="message-circle"></i></a>
-										<a class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editmodal" href="#"><i data-feather="edit"></i></a>
+										<a class="btn btn-info" href="{% url 'appAdmin:article_update' slug=article.slug %}"><i data-feather="edit"></i></a>
 										<a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal-{{forloop.counter}}" href="#"><i data-feather="trash-2"></i></a>
 									</td>
 								</tr>
@@ -97,8 +96,9 @@
 		</div>
 	</main>
 
-	{% comment %} <!-- Edit modal-->
-	<div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<!-- Edit modal-->
+	{% comment %} {% for article in articles %}
+	<div class="modal fade" id="editmodal-{{forloop.counter}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -106,12 +106,12 @@
 				<button type="button" class="btn-close" id="close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				<form action="" method="POST">
+				<form action="{% url 'appAdmin:article_update' slug=article.slug %}" method="POST">
 					{% csrf_token %}
 					<div class="modal-body">
 						<div class="form-group">
 							<label>Nom</label>
-							<input name="nom" type="text" class="form-control" required>
+							{{form.titre}}
 						</div>
 						<div class="form-group">
 							<label>Post-nom</label>
@@ -151,9 +151,10 @@
 			</div>
 		</div>
 		</div>
-	</div> {% endcomment %}
+	</div>
+	{% endfor %} {% endcomment %}
 
-	{% comment %} <!-- delete modal -->
+	 <!-- delete modal -->
 	{% for article in articles %}
 	<div class="modal fade" id="deleteModal-{{ forloop.counter }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -162,7 +163,7 @@
 					<h5 class="modal-title" id="exampleModalLabel">Supprimer un article</h5>
 					<button type="button" class="btn-close" id="close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
-				<form action={% url 'appAdmin:delete' titre=article.titre%} method="POST">
+				<form action={% url 'appAdmin:article_delete' slug=article.slug %} method="POST">
 					{% csrf_token %}
 					<div class="modal-body">
 						<p> Voulez-vous supprimer <b>"{{article.titre}}"</b> ?</p>
@@ -176,5 +177,5 @@
 			</div>
 		</div>
 	</div> 
-	{% endfor%}{% endcomment %}
+	{% endfor%}
 {% endblock main%}

@@ -1,4 +1,4 @@
-""" from django.urls import path
+from django.urls import path
 from appAdmin.views import *
 
 app_name = "appAdmin"
@@ -6,13 +6,13 @@ app_name = "appAdmin"
 urlpatterns = [
 
     path('', IndexListView.as_view(), name="home"),
-
+    
     path('article/', ArticleListView.as_view(), name="article"),
     path('article_create/', ArticleCreateView.as_view(), name="article_create"),
     path('article_update/<str:slug>', ArticleUpdateView.as_view(), name="article_update"),
-    path('article_delete/<int:id>', ArticleDeleteView.as_view(), name="article_delete"),
-    path('article/ascendant', article_order_croissante, name="article_ascendant"),
-    path('article/descendant', article_order_decroissante, name="article_descendant"),
+    path('article_delete/<str:slug>', ArticleDeleteView.as_view(), name="article_delete"),
+]
+"""
 
     path('inscription/', InscriptionListView.as_view(), name="inscription"),
     path('inscription_create/', InscriptionCreateView.as_view(), name="inscription_create"),
@@ -96,12 +96,3 @@ urlpatterns = [
 
 ]
  """
-
-from django.urls import path
-from appAdmin.views import *
-
-app_name = "appAdmin"
-
-urlpatterns = [
-
-]

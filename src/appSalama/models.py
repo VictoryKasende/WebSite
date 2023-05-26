@@ -1,4 +1,5 @@
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import PermissionsMixin
 from django.db import models
 from django.utils.text import slugify
 
@@ -23,7 +24,7 @@ class MyUserManager(BaseUserManager):
         return user
 
 
-class CustomUser(AbstractBaseUser):
+class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(
         unique=True,
         max_length=255,
@@ -68,7 +69,7 @@ class Article(models.Model):
     publié = models.BooleanField(default=False, verbose_name="Publié")
     date_creation = models.DateField(blank=True, null=True)
     derniere_modification = models.DateField(auto_now=True)
-    image = models.ImageField(upload_to='article')
+    image = models.ImageField(upload_to='article', default="image")
     categorie = models.CharField(max_length=255, choices=CATEGORIE_ARTICLE_CHOIX)
 
     class Meta:
@@ -255,9 +256,9 @@ class Infrastructure(models.Model):
 class Archive(models.Model):
 
     user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Utilisateur")
-    mois = models.CharField(max_length=255, verbose_name="Mois", default="1")
-    annee = models.CharField(max_length=255, verbose_name="Année", default="1")
-    date = models.DateField(verbose_name="Date", default="1")
+    mois = models.CharField(max_length=255, verbose_name="Mois")
+    annee = models.CharField(max_length=255, verbose_name="Année")
+    date = models.DateField(verbose_name="Date")
 
     class Meta:
         verbose_name = "Archive"
@@ -268,9 +269,9 @@ class Archive(models.Model):
 
 class Partenaire(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Utilisateur")
-    image = models.ImageField(upload_to="partenaire")
-    nom = models.CharField(max_length=255, verbose_name="Nom")
-    date = models.DateField(verbose_name="Date")
+    image = models.ImageField(upload_to="partenaire", blank=True, default="image")
+    nom = models.CharField(max_length=255, verbose_name="Nom", blank=True)
+    date = models.DateField(verbose_name="Date", blank=True, default="image")
 
     class Meta:
         verbose_name = "Partenaire"

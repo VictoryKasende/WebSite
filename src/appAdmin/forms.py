@@ -1,4 +1,4 @@
-""" from django import forms
+from django import forms
 from appSalama.models import *
 
 MOIS = (
@@ -25,8 +25,8 @@ GENRES = (
 
 STATUS = (
     ('statut', 'Statut...'),
-    ('publier','Publier'),
-    ('non_publier','Non Publier'),
+    ('True','Publier'),
+    ('False','Non Publier'),
 )
 CATEGORIES = (
     ('categorie', 'Categorie...'),
@@ -66,10 +66,10 @@ class ArticleForm(forms.ModelForm):
         model = Article
         fields = [
             "titre",
-            "paragraphe1",
-            "paragraphe2",
-            "paragraphe3",
-            "paragraphe4",
+            "section1",
+            "section2",
+            "section3",
+            "section4",
             "categorie",
             "date_creation",
             "image",
@@ -99,10 +99,10 @@ class PartenaireForm(forms.ModelForm):
 
         widgets = {
             "image": forms.FileInput(attrs={'placeholder': "Image", 'class': 'form-control'}),
-            #"nom": forms.TextInput(attrs={'placeholder': "Nom du partenaire", 'class': 'form-control'}),
-            #'date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            "nom": forms.TextInput(attrs={'placeholder': "Nom du partenaire", 'class': 'form-control'}),
+            'date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
         }
-
+"""
 class CoursForm(forms.ModelForm):
     class Meta:
         model = Cours
@@ -216,7 +216,7 @@ class OptionForm(forms.ModelForm):
             'date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'image': forms.FileInput(attrs={'placeholder': "Image", 'class': 'form-control'}),
         }
-
+""" """
 class OptionFilter(forms.Form):
     nom = forms.CharField(label="", required=True,
                            widget=forms.TextInput(attrs={'placeholder': "Nom de l'option", 'class': 'form-control'}))
@@ -296,7 +296,7 @@ class ArchiveArticleFilter(forms.Form):
     status = forms.ChoiceField(label="", required=True, choices=STATUS)
     mois = forms.ChoiceField(label="", required=True, choices=MOIS)
     categorie = forms.ChoiceField(label="", required=True, choices=CATEGORIES)
-
+"""
 class ArticleFilter(forms.Form):
     nom = forms.CharField(label="", required=True,
                            widget=forms.TextInput(attrs={'placeholder': "Nom de l'article", 'class': 'form-control'}))
@@ -304,4 +304,3 @@ class ArticleFilter(forms.Form):
     mois = forms.ChoiceField(label="", required=True, choices=MOIS)
     categorie = forms.ChoiceField(label="", required=True, choices=CATEGORIES)
 
- """

@@ -69,7 +69,7 @@ class Article(models.Model):
     publié = models.BooleanField(default=False, verbose_name="Publié")
     date_creation = models.DateField(blank=True, null=True)
     derniere_modification = models.DateField(auto_now=True)
-    image = models.ImageField(upload_to='article', default="image")
+    image = models.ImageField(upload_to='article')
     categorie = models.CharField(max_length=255, choices=CATEGORIE_ARTICLE_CHOIX)
 
     class Meta:
@@ -129,7 +129,7 @@ class Cours(models.Model):
     date = models.DateField(verbose_name="Date")
 
     class Meta:
-        verbose_name = 'Cours'
+        verbose_name = 'Cour'
 
     def __str__(self):
         return self.nom
@@ -269,9 +269,9 @@ class Archive(models.Model):
 
 class Partenaire(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Utilisateur")
-    image = models.ImageField(upload_to="partenaire", blank=True, default="image")
+    image = models.ImageField(upload_to="partenaire")
     nom = models.CharField(max_length=255, verbose_name="Nom", blank=True)
-    date = models.DateField(verbose_name="Date", blank=True, default="image")
+    date = models.DateField(verbose_name="Date", blank=True)
 
     class Meta:
         verbose_name = "Partenaire"

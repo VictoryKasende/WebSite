@@ -16,12 +16,8 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-import appSalama
 
 urlpatterns = [
-    path('jet/' ,  include ('jet.urls')), 
-    path('jet/dashboard' ,  include ('jet.dashboard.urls', 'jet-dashboard')), 
-    path('dev/', admin.site.urls),
-    path('admin/', include('appAdmin.urls')),
+    path('admin/', admin.site.urls, name="admin"),
     path('', include('appSalama.urls')),
 ]

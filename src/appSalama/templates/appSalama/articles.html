@@ -107,7 +107,7 @@
                             </div><!-- header end -->
 
                             <div class="entry-content" style="text-align: justify;">
-                              <p>{{ article.paragraphe1|truncatewords:100 }}</p>
+                              <p>{{ article.section1|truncatewords:100 }}</p>
                             </div>
 
                             <div class="post-footer">
@@ -118,7 +118,7 @@
                         </div><!-- 1st post end -->
                         {% endfor %}
                         
-                        <nav class="paging" aria-label="Page navigation example">
+                        {% comment %} <nav class="paging" aria-label="Page navigation example">
                           <ul class="pagination">
                             <li class="page-item"><a class="page-link color-text" href="#"><i class="fas fa-angle-double-left"></i></a></li>
                             <li class="page-item"><a class="page-link color-text" href="#">1</a></li>
@@ -126,7 +126,7 @@
                             <li class="page-item"><a class="page-link color-text" href="#">3</a></li>
                             <li class="page-item"><a class="page-link color-text" href="#"><i class="fas fa-angle-double-right"></i></a></li>
                           </ul>
-                        </nav>
+                        </nav> {% endcomment %}
                 
                       </div><!-- Content Col end -->
                 

@@ -21,7 +21,6 @@ urlpatterns = [
     path('contact/', contact, name="contact"),
     path('login/', connexion, name="connexion"),
     path('option/<str:slug>/', option, name="option"),
-    #path('jet/', include('jet.urls', 'jet')),
 
 ]
 if settings.DEBUG:

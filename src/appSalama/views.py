@@ -24,6 +24,13 @@ def option(request, slug: str):
     cours = Cours.objects.filter(option_id=option.id)
     return render(request, "appSalama/option.html", context={'option': option, 'cours': cours})
 
+
+def error_404_view(request, exception):
+    response = render(request, 'appSalama/404.html')
+    response.status_code = 404
+    return response
+
+
 def about(request):
     options = Option.objects.all()
     return render(request, "appSalama/about.html", context={'options':options})

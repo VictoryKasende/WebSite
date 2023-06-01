@@ -195,11 +195,12 @@ def contact(request):
         if form.is_valid():
             data = form.cleaned_data
             message = Message()
-            message.user_id = 1
+            message.user_id = None
             message.email = data['email']
             message.nom = data['nom']
             message.sujet = data['sujet']
             message.message = data['message']
+            message.date = date.today()
             message.save()
     form = MessageForm()
     return render(request, "appSalama/contact.html",context={'form': form})

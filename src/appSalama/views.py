@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
@@ -37,23 +39,38 @@ def about(request):
 
 def article(request, slug: str):
     article = Article.objects.get(slug=slug)
-    commentaires = Commentaire.objects.filter(article_id=article.id) 
     derniers = Article.objects.all().order_by('-id')[:3]
     archives = Archive.objects.all()
     articles = Article.objects.all()
+    print("Avant")
     if request.method == 'POST':
+        print("In")
         form = CommentaireForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
+            #data = request.POST
             commentaire = Commentaire()
-            commentaire.article_id = id
+            commentaire.article_id = article.id
             commentaire.email = data['email']
             commentaire.nom = data['nom']
             commentaire.commentaire = data['message']
             commentaire.website = data['website']
+            commentaire.date = date.today()
             commentaire.save()
-            return redirect("article")
+            print(data['nom'])
+            print(data['email'])
+            print(data['message'])
+            print(data['website'])
+            print(date.today())
+            print(article.id)
+            print(data)
+            print("Create")
+
     form = CommentaireForm()
+    commentaires = Commentaire.objects.filter(article_id=article.id).order_by('-id')
+    if len(commentaires) > 6:
+        commentaires = commentaires[:6]
+
 
     context = {
 
@@ -62,6 +79,7 @@ def article(request, slug: str):
         'commentaires': commentaires,
         'derniers': derniers,
         'archives': archives,
+        'form':form,
 
     }
 

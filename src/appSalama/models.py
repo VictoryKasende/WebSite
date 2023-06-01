@@ -151,7 +151,7 @@ class Formation(models.Model):
 class Commentaire(models.Model):
     
     nom = models.CharField(max_length=255, verbose_name="Nom")
-    article = models.ForeignKey(Article, on_delete=models.CASCADE, verbose_name="Article")
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, null=True, blank=True, verbose_name="Article")
     image_profil = models.ImageField(upload_to='Commentaire', blank=True, null=True, verbose_name="Image")
     email = models.EmailField(max_length=255, blank=True, verbose_name="Email")
     website = models.CharField(max_length=255, blank=True, verbose_name="Website")

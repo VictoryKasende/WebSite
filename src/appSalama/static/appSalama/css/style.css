@@ -1,6 +1,9 @@
 /********** Template CSS **********/
 
-
+.login-logo {
+    width:50;
+    height:50;
+}
 .home-about-section {
 	padding-bottom: 90px;
 }

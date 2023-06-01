@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-fo%h3&7d0xi!z$hkbo3y38+epnj37ke=wkkb17ihtsp574(g$u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -160,7 +160,7 @@ JAZZMIN_SETTINGS = {
     "site_icon": None,
 
     # Welcome text on the login screen
-    "welcome_sign": "Welcome to the library",
+    "welcome_sign": "S'authentifier",
 
     # Copyright on the footer
     "copyright": "Salama",
@@ -175,6 +175,7 @@ JAZZMIN_SETTINGS = {
     
     "default_icon_parents": "fas fa-chevron-circle-right",
     "default_icon_children": "fas fa-arrow-circle-right",
+    "custom_css": "appSalama/css/style.css",
     
 }
 

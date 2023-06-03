@@ -130,18 +130,20 @@
         </div>
         <div class="row g-4">
             {% for a in derniers %}
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src={{a.image.url}} alt="">
-                        </div>
-                        <div class="text-center py-2">
-                            <h5 class="mb-0">{{a.titre}}</h5>
-                            <small>{{a.contenu|safe|truncatewords:15}}</small><br>
-                            <a class="btn btn-prim py-2 px-3 mt-2" href={% url 'appSalama:article' slug=a.slug %}>Voir Plus</a>
+                {% if a.publie == True %}
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="team-item bg-light">
+                            <div class="overflow-hidden">
+                                <img class="img-fluid" src={{a.image.url}} alt="">
+                            </div>
+                            <div class="text-center py-2">
+                                <h4 class="mb-0">{{a.titre}}</h4>
+                                <small>{{a.section1|safe|truncatewords:30}}</small><br>
+                                <a class="btn btn-prim py-2 px-3 mt-2" href={% url 'appSalama:article' slug=a.slug %}>Voir Plus</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                {% endif %}
             {% endfor %}
         </div>
     </div>

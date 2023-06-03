@@ -1,7 +1,6 @@
 from django import forms
 
 GENRES = (
-    ('Genre...','Genre...'),
     ('M','M'),
     ('F','F'),
 )
@@ -17,10 +16,11 @@ class InscriptionForm(forms.Form):
     nom = forms.CharField(label="",required=True, widget=forms.TextInput(attrs={'placeholder':"Nom",'class':'form-control'}))
     post_nom = forms.CharField(label="",required=True, widget=forms.TextInput(attrs={'placeholder':"Post-nom",'class':'form-control'}))
     prenom = forms.CharField(label="",required=True, widget=forms.TextInput(attrs={'placeholder':"Prénom",'class':'form-control'}))
-    genre = forms.ChoiceField(label="", required=True, choices=GENRES)
+    genre = forms.ChoiceField(label="", required=True, widget=forms.RadioSelect, choices=GENRES)
     date_naissance = forms.CharField(label="",required=True, widget=forms.TextInput(attrs={'placeholder':"Date de naissance", 'type':'date','class':'form-control'}))
     pourcentage = forms.CharField(label="",required=True, widget=forms.TextInput(attrs={'placeholder':"Pourcentage",'class':'form-control'}))
     adresse = forms.CharField(label="",required=True, widget=forms.TextInput(attrs={'placeholder':"Adresse",'class':'form-control'}))
+    nom_etablissement = forms.CharField(label="",required=True, widget=forms.TextInput(attrs={'placeholder':"Nom de l'etablissement",'class':'form-control'}))
     nom_responsable = forms.CharField(label="",required=True, widget=forms.TextInput(attrs={'placeholder':"Nom de responsable",'class':'form-control'}))
     religion = forms.CharField(label="",required=True, widget=forms.TextInput(attrs={'placeholder':"Religion",'class':'form-control'}))
     motif = forms.CharField(label="",required=True, widget=forms.TextInput(attrs={'placeholder':"Motif",'rows':'4','class':'form-control'}))

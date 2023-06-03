@@ -19,7 +19,7 @@ urlpatterns = [
     path('article/categorie/<str:categorie>/', articles_categorie, name="categorie_article"),
     path('article/archive/<str:mois>/<str:annee>/', archive_article, name="archive_article"),
     path('contact/', contact, name="contact"),
-    path('login/', connexion, name="connexion"),
+    path("login/", connexion, name="connexion"),
     path('option/<str:slug>/', option, name="option"),
 
 ]

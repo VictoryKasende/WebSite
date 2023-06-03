@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
@@ -24,29 +26,51 @@ def option(request, slug: str):
     cours = Cours.objects.filter(option_id=option.id)
     return render(request, "appSalama/option.html", context={'option': option, 'cours': cours})
 
+
+def error_404_view(request, exception):
+    response = render(request, 'appSalama/404.html')
+    response.status_code = 404
+    return response
+
+
 def about(request):
     options = Option.objects.all()
     return render(request, "appSalama/about.html", context={'options':options})
 
 def article(request, slug: str):
     article = Article.objects.get(slug=slug)
-    commentaires = Commentaire.objects.filter(article_id=article.id) 
     derniers = Article.objects.all().order_by('-id')[:3]
     archives = Archive.objects.all()
     articles = Article.objects.all()
+    print("Avant")
     if request.method == 'POST':
+        print("In")
         form = CommentaireForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
+            #data = request.POST
             commentaire = Commentaire()
-            commentaire.article_id = id
+            commentaire.article_id = article.id
             commentaire.email = data['email']
             commentaire.nom = data['nom']
             commentaire.commentaire = data['message']
             commentaire.website = data['website']
+            commentaire.date = date.today()
             commentaire.save()
-            return redirect("article")
+            print(data['nom'])
+            print(data['email'])
+            print(data['message'])
+            print(data['website'])
+            print(date.today())
+            print(article.id)
+            print(data)
+            print("Create")
+
     form = CommentaireForm()
+    commentaires = Commentaire.objects.filter(article_id=article.id).order_by('-id')
+    if len(commentaires) > 6:
+        commentaires = commentaires[:6]
+
 
     context = {
 
@@ -55,6 +79,7 @@ def article(request, slug: str):
         'commentaires': commentaires,
         'derniers': derniers,
         'archives': archives,
+        'form':form,
 
     }
 
@@ -170,11 +195,12 @@ def contact(request):
         if form.is_valid():
             data = form.cleaned_data
             message = Message()
-            message.user_id = 1
+            message.user_id = None
             message.email = data['email']
             message.nom = data['nom']
             message.sujet = data['sujet']
             message.message = data['message']
+            message.date = date.today()
             message.save()
     form = MessageForm()
     return render(request, "appSalama/contact.html",context={'form': form})
@@ -188,16 +214,4 @@ def infrastructure_categorie (request, categorie: str):
     return render(request, "appSalama/infrastructure.html", context={'infrastructure':infrastructure})
 
 def connexion(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            data = form.cleaned_data
-            email = data['email']
-            password = data['password']
-            user = authenticate(request, email=email, password=password)
-            print(user)
-            if user:
-                login(request, user)
-                return HttpResponse("Login succes!")
-    form = LoginForm()
-    return render(request, "appSalama/connexion.html", context={'form':form})
+    return redirect("/admin/login/?next=/admin/")

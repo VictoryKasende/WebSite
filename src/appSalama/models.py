@@ -66,7 +66,7 @@ class Article(models.Model):
     section3 = models.TextField(blank=True, verbose_name="section3")
     section4 = models.TextField(blank=True, verbose_name="section4")
     slug = models.SlugField(max_length=255, blank=True, unique=True)
-    publié = models.BooleanField(default=False, verbose_name="Publié")
+    publie = models.BooleanField(default=False, verbose_name="Publié")
     date_creation = models.DateField(blank=True, null=True)
     derniere_modification = models.DateField(auto_now=True)
     image = models.ImageField(upload_to='article')

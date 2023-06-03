@@ -51,14 +51,14 @@
                           </div><!-- header end -->
               
                           <div class="entry-content" style="text-align: justify;">
-                            <p>{{article.paragraphe1}}</p>
+                            <p>{{article.section1}}</p>
               
-                            <p>{{article.paragraphe2}}</p>
+                            <p>{{article.section2}}</p>
               
-                            <p>{{article.paragraphe3}}</p>
+                            <p>{{article.section3}}</p>
               
                             <blockquote>
-                              <p>{{article.paragraphe4}}</p>
+                              <p>{{article.section4}}</p>
                             </blockquote>
                             
                           </div>
@@ -79,6 +79,25 @@
                           </div>
               
                         </div><!-- post-body end -->
+                        <div class="comments">
+
+                          <h4 class="comments-count">{{ article.get_commentaires }} Commentaires</h4>
+                          {% for commentaire in commentaires %}
+                            <div id="comment-1" class="comment">
+                              <div class="d-flex">
+                                <div class="comment-img"><img src="{% static 'appSalama/img/user.jpg' %}"  style="width:60px; heigth:60px;" alt="Profil Image"></div>
+                                <div>
+                                  <h5>{{ commentaire.nom }}</h5>
+                                  <time datetime="2020-01-01">{{ commentaire.date }}</time>
+                                  <p>
+                                    {{ commentaire.commentaire }}.
+                                  </p>
+                                </div>
+                              </div>
+                            </div><!-- End comment #1 -->
+                          {% endfor %}
+                        </div><!-- End blog comments -->
+
                       </div><!-- post content end -->
               
                         <div class="comments-form border-box">
@@ -90,26 +109,30 @@
                           <div class="row">
                             <div class="col-md-4">
                               <div class="form-group">
-                                <label for="name">{{ form.nom }}</label>
+                                {{ form.nom }}
+                                <label for="text"></label>
                               </div>
                             </div><!-- Col 4 end -->
 
                             <div class="col-md-4">
                               <div class="form-group">
-                                <label for="email">{{ form.email }}</label>
+                                {{ form.email }}
+                                <label for="text"></label>
                               </div>
                             </div>
 
                             <div class="col-md-4">
                               <div class="form-group">
-                                <label for="website">{{ form.website }}</label>
+                                {{ form.website }}
+                                <label for="website"></label>
                               </div>
                             </div>
                           </div><br>
                           <div class="row">
                             <div class="col-md-12">
                               <div class="form-group">
-                                <label for="message"><textarea class="form-control required-field" id="message" placeholder="Votre  Commentaire" rows="4" cols="89" required></textarea></label>
+                                {{ form.message }}
+                                <label for="message"></label>
                               </div>
                             </div>
                           </div>

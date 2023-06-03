@@ -13,8 +13,8 @@ class OptionAdmin(admin.ModelAdmin):
 
 class ArticleAdmin(admin.ModelAdmin):
     list_display = (
-        "titre", "section1" , "section2", "section3", "section4", "publié", "date_creation", "derniere_modification", "image", "categorie")
-    list_editable = ("publié", )
+        "titre", "section1" , "section2", "section3", "section4", "publie", "date_creation", "derniere_modification", "image", "categorie")
+    list_editable = ("publie", )
 
 class FormationAdmin(admin.ModelAdmin):
     list_display = ("nom", "description1", "image")

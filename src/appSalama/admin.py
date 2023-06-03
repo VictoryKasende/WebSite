@@ -1,6 +1,6 @@
 from django.contrib import admin
 from appSalama.models import *
-
+from django.utils.translation import gettext_lazy, gettext
 
 class CustomUserAdmin(admin.ModelAdmin):
     list_display = ("email", "password")

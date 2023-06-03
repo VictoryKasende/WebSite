@@ -2,7 +2,7 @@ from django.conf.urls.static import static
 from django.urls import path, include
 from WebSite import settings
 from appSalama.views import *
-
+from django.utils.translation import gettext_lazy, gettext
 app_name = 'appSalama'
 
 urlpatterns = [

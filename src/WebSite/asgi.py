@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/4.1/howto/deployment/asgi/
 import os
 
 from django.core.asgi import get_asgi_application
-
+from django.utils.translation import gettext_lazy, gettext
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'WebSite.settings')
 
 application = get_asgi_application()

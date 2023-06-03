@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from .models import *
 from .forms import CommentaireForm, InscriptionForm, MessageForm, LoginForm
-
+from django.utils.translation import gettext_lazy, gettext
 
 def index(request):
     formations = Formation.objects.all()

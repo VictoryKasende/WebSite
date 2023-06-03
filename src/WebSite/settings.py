@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
-
+from django.utils.translation import gettext_lazy, gettext
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -109,8 +110,24 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
-
-LANGUAGE_CODE = 'fr-fr'
+from django.utils.translation import gettext_lazy as _
+LANGUAGES = [
+('fr', _('French')),
+('en', _('English')),
+]
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+ <div class="nav-item dropdown">
+   <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button"             data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+            {% translate 'Languages' %}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% for language in languages %}
+            <a class="dropdown-item" href="/{{language.code}}">{{ language.name_local }}</a>
+            {% endfor %}
+          </div>
+ </div>
+#LANGUAGE_CODE = 'fr-fr'
 
 TIME_ZONE = 'UTC'
 
@@ -208,3 +225,6 @@ JAZZMIN_UI_TWEAKS = {
         "success": "btn-info",
     },
 }
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)

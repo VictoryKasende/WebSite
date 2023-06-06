@@ -1,0 +1,529 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-06 19:10+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: WebSite/settings.py:129
+msgid "French"
+msgstr "Français"
+
+#: WebSite/settings.py:130
+msgid "English"
+msgstr "Anglais"
+
+#: appSalama/models.py:56
+msgid "Construction"
+msgstr "Construction"
+
+#: appSalama/models.py:57
+msgid "Commerciale"
+msgstr "Commercial"
+
+#: appSalama/models.py:58
+msgid "Innovation"
+msgstr "Innovation"
+
+#: appSalama/models.py:59
+msgid "Structure"
+msgstr "Structure"
+
+#: appSalama/models.py:60
+msgid "Securite"
+msgstr "Security"
+
+#: appSalama/models.py:235
+msgid "CYCLE SUPERIEUR"
+msgstr "UPPER CYCLE"
+
+#: appSalama/models.py:236
+msgid "CYCLE INFERIEUR"
+msgstr "LOWER CYCLE"
+
+#: appSalama/models.py:237
+msgid "MECANIQUE GENERALE"
+msgstr "GENERAL MECHANIC"
+
+#: appSalama/models.py:238
+msgid "MECANIQUE AUTO"
+msgstr "AUTO MECHANICS"
+
+#: appSalama/models.py:239
+msgid "ELECTRONIQUE"
+msgstr "ELECTRONIC"
+
+#: appSalama/models.py:240
+msgid "ELECTRICITE"
+msgstr "ELECTRICITY"
+
+#: appSalama/models.py:241
+msgid "IMPRIMERIE"
+msgstr "PRINTING"
+
+#: appSalama/templates/appSalama/404.html:46
+msgid ""
+"Nous sommes désolés, la page que vous recherchez n'existe pas sur notre site "
+"web ! Peut-être devriez-vous vous rendre sur notre page d'accueil ou essayer "
+"d'effectuer une recherche ?"
+msgstr ""
+"We are sorry, the page you are looking for does not exist on our site"
+"web! Maybe you should go to our homepage or try "
+"to carry out a search?"
+
+#: appSalama/templates/appSalama/404.html:47
+msgid "Rentrer à l'accueil"
+msgstr "Back to home"
+
+#: appSalama/templates/appSalama/about.html:13
+#: appSalama/templates/appSalama/about.html:17 templates/base.html:54
+msgid "A propos"
+msgstr "In regards to"
+
+#: appSalama/templates/appSalama/about.html:16
+#: appSalama/templates/appSalama/articles.html:14
+#: appSalama/templates/appSalama/contact.html:16
+#: appSalama/templates/appSalama/infrastructure.html:14
+#: appSalama/templates/appSalama/infrastructures.html:14
+#: appSalama/templates/appSalama/inscription.html:15
+#: appSalama/templates/appSalama/realisation.html:14
+#: appSalama/templates/appSalama/realisations.html:14 templates/base.html:53
+msgid "Accueil"
+msgstr "Welcome"
+
+#: appSalama/templates/appSalama/about.html:36
+#: appSalama/templates/appSalama/index.html:20
+#: appSalama/templates/appSalama/index.html:37 templates/base.html:96
+msgid "Qui sommes-nous ?"
+msgstr "Who are we ?"
+
+#: appSalama/templates/appSalama/about.html:37
+#, fuzzy
+#| msgid ""
+#| "C’est pour nous une opportunité de rendre un hommage mérité aux pionniers "
+#| "de cette école. D’abord les 4 premiers salésiens qui sont le P Frans "
+#| "Lehaen, devenu évêque de Sakania Kipushi, qui fut le premier directeur de "
+#| "l’œuvre, le P Albert Snoeckx, premier préfet de l’école, Mr Clément "
+#| "Hlond, coadjuteur mécanicien et le stagiaire, abbé Gerrit van aspert, "
+#| "qualifié en maçonnerie, les 12 moniteurs laïc."
+msgid ""
+"L’institut Technique Salama Don Bosco a ouvert ses portes le 11 octobre 1955 "
+"sous la dénomination d’école Professionnelle Officielle des Métiers Don "
+"Bosco (EPom) en sigle. 92 jeunes étaient accueillis dans les trois sections "
+"que comportaient l’école, à savoir la mécanique automobile, la menuiserie et "
+"la maçonnerie. C’est pour nous une opportunité de rendre un hommage mérité "
+"aux pionniers de cette école. D’abord les 4 premiers salésiens qui sont le P "
+"Frans Lehaen, devenu évêque de Sakania Kipushi, qui fut le premier directeur "
+"de l’œuvre, le P Albert Snoeckx, premier préfet de l’école, Mr Clément "
+"Hlond, coadjuteur mécanicien et le stagiaire, abbé Gerrit van aspert, "
+"qualifié en maçonnerie, les 12 moniteurs laïc. L’école a abandonné "
+"progressivement les sections artisanales 2 ans pour introduire les sections "
+"techniques secondaires inférieures (4 ans)."
+msgstr ""
+"The Salama Don Bosco Technical Institute opened its doors on October 11, "
+"1955under the name of Official Professional School of Don TradesBosco (EPom) "
+"in acronym. 92 young people were welcomed in the three sectionswhat the "
+"school included, namely auto mechanics, carpentry and masonry. It is an "
+"opportunity for us to pay a deserved tributeto the pioneers of this school. "
+"First the first 4 Salesians who are the P Frans Lehaen, who became bishop of "
+"Sakania Kipushi, who was the first directorof the work, Fr Albert Snoeckx, "
+"first prefect of the school, Mr ClémentHlond, coadjutor mechanic and the "
+"trainee, abbot Gerrit van aspert, qualified in masonry, the 12 lay monitors. "
+"The school has given upgradually the artisanal sections 2 years to introduce "
+"the sectionslower secondary techniques (4 years).This is an opportunity for "
+"us to pay a well-deserved tribute to the pioneers of this school. First the "
+"first 4 Salesians who are Fr Frans Lehaen, became bishop of Sakania Kipushi, "
+"who was the first director of the work, P Albert Snoeckx, first prefect of "
+"the school, Mr Clément Hlond, coadjutormechanic and trainee, abbot Gerrit "
+"van aspert, qualified in masonry, the 12 lay monitors."
+
+#: appSalama/templates/appSalama/about.html:40
+#, fuzzy
+#| msgid "Notre vision"
+msgid "Notre histoire"
+msgstr "Our history"
+
+#: appSalama/templates/appSalama/about.html:41
+msgid ""
+"Lors de sa célébration du 10 ème anniversaire 1964-65 l’école introduit le "
+"cycle d’orientation qui devait permettre la création de cycles longs de 6 "
+"ans dès 1966 avec la section d’électricité. L’école changeait de nom pour "
+"devenir Ecole technique secondaire supérieure (ETSS) Don Bosco, dénomination "
+"qu’elle gardera jusqu’à la zairianisation. En 1972 eut lieu la fusion des "
+"deux écoles techniques salésiennes, celle de la Kafubu et l’ETSS. On "
+"transférait d’abord la section mécanique générale de la Kafubu ensuite "
+"l’imprimerie (installé dans l’atelier de menuiserie) en ville. Lors de la "
+"zairianisation l’école pris le nom de « Institut Technique Professionnel "
+"Salama », dans l’idée des gestionnaires de l’époque, l’école devait rester "
+"un lieu de paix, une école où on se sent chez soi. En 2001-2002 l’Institut "
+"technique salama initia la section mécanique automobile cycle long, puis en "
+"2003-2004, la section électronique. L’année 2002-2003, a vu naître en "
+"prolongement de l’enseignement technique dispensé à Salama l’Ecole "
+"Supérieure d’Informatique ESIS en sigle qui forme des cadres spécialisés "
+"dans les différents domaines de l’informatique dont on sentait partout le "
+"besoin. De nos jours l’institut technique Salama organise 6 sections : "
+"l’électricité, l’électronique, l’imprimerie, la mécanique générale, la "
+"mécanique machines-outils, la mécanique Automobile cycle long et cycle "
+"professionnel. Afin de compléter la formation professionnelle donnée à nos "
+"élèves, l’école a initié depuis 2012 la 7ème année de professionnalisation "
+"dans toutes les sections. Tout au long de son parcours, l’œuvre salésienne "
+"de Salama a connu 22 Directeurs et 15 préfets."
+msgstr ""
+
+#: appSalama/templates/appSalama/about.html:42
+msgid ""
+"Il a délivré 5730 diplômes jusqu’en 2015, c’est ici une occasion pour rendre "
+"un hommage mérité aux salésiens, à tous les collaborateurs laïcs formateurs, "
+"aux autorités scolaires, aux différents bienfaiteurs et à tous les "
+"partenaires qui ont collaboré d’une façon ou d’une autre jusqu’à ce jour "
+"dans la formation des jeunes de cette école. Nous n’oublions pas les parents "
+"qui font confiance à cette école et y envoient leurs enfants et qui depuis "
+"un peu plus de deux décennies portent la charge du fonctionnement et de la "
+"motivation du personnel. A ce jour, l’école nourrit des grands projets : le "
+"sexagénaire sera marqué par l’érection d’une grotte mariale dans l’espace "
+"scolaire, ceci pour remercier la Vierge Marie, celle qui a tout fait. "
+"L’école s’engage dans la voie de la sécurisation de l’infrastructure en "
+"érigeant une clôture en grillage, la construction de l’internat, "
+"l’acquisition des nouveaux bus scolaires pour le transport de ses élèves en "
+"plus du seul dont il dispose. la modernisation des ateliers et l’entretien "
+"des infrastructures. Elle lance un appel à tous ceux qui sont passés par "
+"cette école, à tous ceux qui aiment et croient dans la formation que donne "
+"cette école, laquelle en réalité a peu de concurrents sur la plan national "
+"de soutenir la réalisation de ces projets."
+msgstr ""
+
+#: appSalama/templates/appSalama/about.html:46
+msgid "Notre vision"
+msgstr "Our vision"
+
+#: appSalama/templates/appSalama/about.html:47
+msgid ""
+"Lors de sa célébration du 10 ème anniversaire 1964-65 l’école introduit le "
+"cycle d’orientation qui devait permettre la création de cycles longs de 6 "
+"ans dès 1966 avec la section d’électricité. L’école changeait de nom pour "
+"devenir Ecole technique secondaire supérieure (ETSS) Don Bosco, dénomination "
+"qu’elle gardera jusqu’à la zairianisation. En 1972 eut lieu la fusion des "
+"deux écoles techniques salésiennes, celle de la Kafubu et l’ETSS. On "
+"transférait d’abord la section mécanique générale de la Kafubu ensuite "
+"l’imprimerie (installé dans l’atelier de menuiserie) en ville. Lors de la "
+"zairianisation l’école pris le nom de « Institut Technique Professionnel "
+"Salama », dans l’idée des gestionnaires de l’époque, l’école devait rester "
+"un lieu de paix, une école où on se sent chez soi. En 2001-2002."
+msgstr ""
+
+#: appSalama/templates/appSalama/about.html:50
+#, fuzzy
+#| msgid "Nos Options"
+msgid "Nos options"
+msgstr "Our Options"
+
+#: appSalama/templates/appSalama/articles.html:11
+#: appSalama/templates/appSalama/articles.html:15 templates/base.html:61
+#, fuzzy
+#| msgid "Nos formations"
+msgid "Articles"
+msgstr "Our trainings"
+
+#: appSalama/templates/appSalama/articles.html:37
+msgid "DERNIERS ARTICLES"
+msgstr "LAST ARTICLES"
+
+#: appSalama/templates/appSalama/articles.html:56
+msgid "CATÉGORIES"
+msgstr "CATEGORIES"
+
+#: appSalama/templates/appSalama/articles.html:71
+msgid "Archives"
+msgstr "Archives"
+
+#: appSalama/templates/appSalama/contact.html:13
+#: appSalama/templates/appSalama/contact.html:17
+#, fuzzy
+#| msgid "Contactez-nous"
+msgid "Contact"
+msgstr "contact us"
+
+#: appSalama/templates/appSalama/contact.html:31
+msgid "Contactez-nous"
+msgstr "contact us"
+
+#: appSalama/templates/appSalama/contact.html:36
+#: appSalama/templates/appSalama/index.html:17
+#: appSalama/templates/appSalama/index.html:35
+msgid "Institut Technique SALAMA"
+msgstr "SALAMA Technical Institute"
+
+#: appSalama/templates/appSalama/contact.html:37
+msgid "Pour tout renseignement n'hésitez pas à nous contacter."
+msgstr "Feel free to contact us if any further information is needed."
+
+#: appSalama/templates/appSalama/contact.html:52
+msgid "Mobile"
+msgstr "Phone"
+
+#: appSalama/templates/appSalama/contact.html:83
+msgid "Votre nom"
+msgstr "Your name"
+
+#: appSalama/templates/appSalama/contact.html:89
+msgid "Votre email"
+msgstr "Your email"
+
+#: appSalama/templates/appSalama/contact.html:95
+msgid "Sujet"
+msgstr "Subject"
+
+#: appSalama/templates/appSalama/contact.html:101
+msgid "Message"
+msgstr "Message"
+
+#: appSalama/templates/appSalama/contact.html:105
+msgid "Envoyer Message"
+msgstr "Send Message"
+
+#: appSalama/templates/appSalama/index.html:16
+#: appSalama/templates/appSalama/index.html:34
+msgid "Une école, un avenir"
+msgstr "One school, one future"
+
+#: appSalama/templates/appSalama/index.html:19
+#: appSalama/templates/appSalama/index.html:36
+msgid "Je m'eduque pour en eduquer d'autres"
+msgstr "I educate myself to educate others"
+
+#: appSalama/templates/appSalama/index.html:21
+#: appSalama/templates/appSalama/index.html:38 templates/base.html:98
+msgid "Rejoignez-nous maintenant"
+msgstr "Join us now"
+
+#: appSalama/templates/appSalama/index.html:61
+msgid "Bienvenue à l'Institut Technique SALAMA"
+msgstr "Welcome to the SALAMA Technical Institute"
+
+#: appSalama/templates/appSalama/index.html:62
+msgid ""
+"L’institut Technique Salama Don Bosco a ouvert ses portes le 11 octobre 1955 "
+"sous la dénomination d’école Professionnelle Officielle des Métiers Don "
+"Bosco (EPom) en sigle. 92 jeunes étaient accueillis dans les trois sections "
+"que comportaient l’école, à savoir la mécanique automobile, la menuiserie et "
+"la maçonnerie."
+msgstr ""
+"The Salama Don Bosco Technical Institute opened its doors on October 11, "
+"1955under the name of Official Professional School of Don TradesBosco (EPom) "
+"in acronym. 92 young people were welcomed in the three sectionswhat the "
+"school included, namely auto mechanics, carpentry and masonry."
+
+#: appSalama/templates/appSalama/index.html:63
+msgid ""
+"C’est pour nous une opportunité de rendre un hommage mérité aux pionniers de "
+"cette école. D’abord les 4 premiers salésiens qui sont le P Frans Lehaen, "
+"devenu évêque de Sakania Kipushi, qui fut le premier directeur de l’œuvre, "
+"le P Albert Snoeckx, premier préfet de l’école, Mr Clément Hlond, coadjuteur "
+"mécanicien et le stagiaire, abbé Gerrit van aspert, qualifié en maçonnerie, "
+"les 12 moniteurs laïc."
+msgstr ""
+"This is an opportunity for us to pay a well-deserved tribute to the pioneers "
+"of this school. First the first 4 Salesians who are Fr Frans Lehaen, became "
+"bishop of Sakania Kipushi, who was the first director of the work, P Albert "
+"Snoeckx, first prefect of the school, Mr Clément Hlond, coadjutormechanic "
+"and trainee, abbot Gerrit van aspert, qualified in masonry, the 12 lay "
+"monitors."
+
+#: appSalama/templates/appSalama/index.html:64
+msgid "Lire Plus"
+msgstr "Read more"
+
+#: appSalama/templates/appSalama/index.html:76
+msgid "Nos Options"
+msgstr "Our Options"
+
+#: appSalama/templates/appSalama/index.html:77
+msgid "six options organisées"
+msgstr "six curated options"
+
+#: appSalama/templates/appSalama/index.html:105
+msgid "Nos formations"
+msgstr "Our trainings"
+
+#: appSalama/templates/appSalama/index.html:106
+msgid "année professionnelle"
+msgstr "professional year"
+
+#: appSalama/templates/appSalama/index.html:129
+#, fuzzy
+#| msgid "Nos formations"
+msgid "Nos articles"
+msgstr "Our trainings"
+
+#: appSalama/templates/appSalama/index.html:130
+msgid "Nos dernières publications"
+msgstr "Our latest publications"
+
+#: appSalama/templates/appSalama/index.html:143
+#, fuzzy
+#| msgid "Lire Plus"
+msgid "Voir Plus"
+msgstr "Read more"
+
+#: appSalama/templates/appSalama/infrastructure.html:15
+#, fuzzy
+#| msgid "Nos Infrastructures"
+msgid "infrastructures"
+msgstr "Our Infrastructure"
+
+#: appSalama/templates/appSalama/infrastructures.html:11
+#: appSalama/templates/appSalama/infrastructures.html:15 templates/base.html:55
+msgid "Nos Infrastructures"
+msgstr "Our Infrastructure"
+
+#: appSalama/templates/appSalama/inscription.html:12
+#: appSalama/templates/appSalama/inscription.html:17
+msgid "INSCRIPTION"
+msgstr "REGISTRATION"
+
+#: appSalama/templates/appSalama/inscription.html:16
+msgid "Pages"
+msgstr "Pages"
+
+#: appSalama/templates/appSalama/inscription.html:31
+msgid "Formulaire d'inscription"
+msgstr "Registration Form"
+
+#: appSalama/templates/appSalama/inscription.html:44
+msgid "Nom"
+msgstr "Name"
+
+#: appSalama/templates/appSalama/inscription.html:50
+msgid "Post-nom"
+msgstr "Last name"
+
+#: appSalama/templates/appSalama/inscription.html:56
+msgid "Prénom"
+msgstr "First name"
+
+#: appSalama/templates/appSalama/inscription.html:68
+msgid "Date de naissance"
+msgstr "Date of birth"
+
+#: appSalama/templates/appSalama/inscription.html:74
+msgid "Adresse"
+msgstr "Address"
+
+#: appSalama/templates/appSalama/inscription.html:80
+msgid "Nom du responsable"
+msgstr "Name of the responsible"
+
+#: appSalama/templates/appSalama/inscription.html:86
+msgid "Religion"
+msgstr "Religion"
+
+#: appSalama/templates/appSalama/inscription.html:92
+msgid "Nom de l’établissement"
+msgstr "Facility Name"
+
+#: appSalama/templates/appSalama/inscription.html:98
+msgid "Pourcentage"
+msgstr "Percentage"
+
+#: appSalama/templates/appSalama/inscription.html:105
+msgid "Raison d’avoir choisi salama"
+msgstr "Reason for choosing Salama"
+
+#: appSalama/templates/appSalama/inscription.html:109
+msgid "Soumettre"
+msgstr "Submit"
+
+#: appSalama/templates/appSalama/option.html:23
+msgid "Presentation de la section"
+msgstr "Presentation of the department"
+
+#: appSalama/templates/appSalama/option.html:36
+msgid "Nos cours en vedette"
+msgstr "Our featured courses"
+
+#: appSalama/templates/appSalama/realisation.html:15
+#: appSalama/templates/appSalama/realisations.html:15
+#, fuzzy
+#| msgid "Réalisations"
+msgid "Realisations"
+msgstr "Achievements"
+
+#: appSalama/templates/appSalama/realisations.html:11
+#, fuzzy
+#| msgid "Réalisations"
+msgid "Nos Realisations"
+msgstr "Achievements"
+
+#: appSalama/templates/appSalama/realisations.html:70
+#, fuzzy
+#| msgid "DERNIERS ARTICLES"
+msgid "DERNIERES REALISATIONS"
+msgstr "LAST ARTICLES"
+
+#: appSalama/templates/appSalama/realisations.html:88
+msgid "OPTIONS"
+msgstr "OPTIONS"
+
+#: appSalama/templates/appSalama/realisations.html:120
+msgid "Afficher toutes les realisations"
+msgstr "Show all realizations"
+
+#: templates/base.html:57
+msgid "BLOG"
+msgstr "BLOG"
+
+#: templates/base.html:59
+msgid "Réalisations"
+msgstr "Achievements"
+
+#: templates/base.html:75
+msgid "CONNEXION"
+msgstr "LOGIN"
+
+#: templates/base.html:89
+msgid "COORDONNEES"
+msgstr "CONTACT DETAILS"
+
+#: templates/base.html:90
+msgid "05 Av. Femme Katangaise, Lubumbashi, RDC"
+msgstr ""
+
+#: templates/base.html:91
+msgid "+243 995 285 024"
+msgstr ""
+
+#: templates/base.html:92
+msgid "info@example.com"
+msgstr ""
+
+#: templates/base.html:95
+msgid "QUELQUES LIENS UTILES"
+msgstr "SOME USEFUL LINKS"
+
+#: templates/base.html:97
+#, fuzzy
+#| msgid "Nos formations"
+msgid "Nos derniers articles"
+msgstr "Our trainings"
+
+#: templates/base.html:101
+msgid "AUTRES LIENS"
+msgstr "OTHER LINKS"
+
+#, fuzzy
+#~| msgid "Envoyer Message"
+#~ msgid "Envoyer"
+#~ msgstr "Send Message"

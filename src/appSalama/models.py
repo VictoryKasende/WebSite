@@ -1,5 +1,6 @@
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
+from django.utils.translation import gettext_lazy as _
 from django.db import models
 from django.utils.text import slugify
 
@@ -52,11 +53,11 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 class Article(models.Model):
 
     CATEGORIE_ARTICLE_CHOIX = [
-        ('Construction', 'Construction'),
-        ('Commerciale', 'Commerciale'),
-        ('Innovation', 'Innovation'),
-        ('Structure', 'Structure'),
-        ('Securite', 'Securite'),
+        ('Construction', _('Construction')),
+        ('Commerciale', _('Commerciale')),
+        ('Innovation', _('Innovation')),
+        ('Structure', _('Structure')),
+        ('Securite', _('Securite')),
     ]
 
     user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, blank=True)
@@ -231,13 +232,13 @@ class Realisation(models.Model):
 class Infrastructure(models.Model):
 
     INFRASTRUCTURE = [
-        ("CYCLE SUPERIEUR", "CYCLE SUPERIEUR"),
-        ("CYCLE INFERIEUR", "CYCLE INFERIEUR"),
-        ("MECANIQUE GENERALE", "MECANIQUE GENERALE"),
-        ("MECANIQUE AUTO", "MECANIQUE AUTO"),
-        ("ELECTRONIQUE", "ELECTRONIQUE"),
-        ("ELECTRICITE", "ELECTRICITE"),
-        ("IMPRIMERIE", "IMPRIMERIE"),
+        ("CYCLE SUPERIEUR", _("CYCLE SUPERIEUR")),
+        ("CYCLE INFERIEUR", _("CYCLE INFERIEUR")),
+        ("MECANIQUE GENERALE", _("MECANIQUE GENERALE")),
+        ("MECANIQUE AUTO", _("MECANIQUE AUTO")),
+        ("ELECTRONIQUE", _("ELECTRONIQUE")),
+        ("ELECTRICITE", _("ELECTRICITE")),
+        ("IMPRIMERIE", _("IMPRIMERIE")),
     ]
 
     titre = models.CharField(max_length=255, verbose_name="Titre")

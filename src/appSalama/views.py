@@ -3,6 +3,7 @@ from datetime import date
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
+from django.utils.translation import gettext as _
 from .models import *
 from .forms import CommentaireForm, InscriptionForm, MessageForm, LoginForm
 

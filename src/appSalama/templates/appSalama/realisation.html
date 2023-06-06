@@ -1,7 +1,7 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block title%}Realisation{% endblock title%}
-
+{% load i18n %}
 {% block body %}
   <!-- Header Start -->
     <div class="container-fluid bg-primary py-5 mb-5 page-header">
@@ -11,8 +11,8 @@
                     <h1 class="text-white animated slideInDown">{{realisation.titre}}</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href={% url 'appSalama:home'%}>Accueil</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href={% url 'appSalama:realisation'%}>Realisations</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href={% url 'appSalama:home'%}>{% trans "Accueil" %}</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href={% url 'appSalama:realisation'%}>{% trans "Realisations" %}</a></li>
                             <li class="breadcrumb-item text-white active" aria-current="page">{{realisation.titre}}</li>
                         </ol>
                     </nav>

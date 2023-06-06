@@ -1,7 +1,7 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block title%}Inscription{% endblock title%}
-
+{% load i18n%}
 {% block body %}
 
     <!-- Header Start -->
@@ -9,12 +9,12 @@
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-10 text-center">
-                    <h1 class="display-3 text-white animated slideInDown">INSCRIPTION</h1>
+                    <h1 class="display-3 text-white animated slideInDown">{% trans "INSCRIPTION" %}</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Accueil</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">INSCRIPTION</li>
+                            <li class="breadcrumb-item"><a class="text-white" href="#">{% trans "Accueil" %}</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="#">{% trans "Pages" %}</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">{% trans "INSCRIPTION" %}</li>
                         </ol>
                     </nav>
                 </div>
@@ -28,7 +28,7 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h2 class="bg-white text-center color-text px-3">Formulaire d'inscription</h1>
+                <h2 class="bg-white text-center color-text px-3">{% trans "Formulaire d'inscription" %}</h1>
             </div><br>
             <div class="row g-4">
                 <di class="col-lg-2 col-md-1"></di>
@@ -41,19 +41,19 @@
                             <div class="col-md-4">
                                 <div class="form-floating">
                                     {{ form.nom }}
-                                    <label for="name">Nom</label>
+                                    <label for="name">{% trans "Nom" %}</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-floating">
                                     {{ form.post_nom }}
-                                    <label for="name">Post-nom</label>
+                                    <label for="name">{% trans "Post-nom" %}</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-floating">
                                     {{ form.prenom }}
-                                    <label for="name">Prénom</label>
+                                    <label for="name">{% trans "Prénom" %}</label>
                                 </div>
                             </div>
                             <div class="col-md-2">
@@ -65,48 +65,48 @@
                             <div class="col-md-4">
                                 <div class="form-floating">
                                     {{ form.date_naissance }}
-                                    <label for="subject">Date de naissance</label>
+                                    <label for="subject">{% trans "Date de naissance" %}</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     {{ form.adresse }}
-                                    <label for="subject">Adresse</label>
+                                    <label for="subject">{% trans "Adresse" %}</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     {{ form.nom_responsable }}
-                                    <label for="text">Nom du responsable</label>
+                                    <label for="text">{% trans "Nom du responsable" %}</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     {{ form.religion }}
-                                    <label for="text">Religion</label>
+                                    <label for="text">{% trans "Religion" %}</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     {{ form.nom_etablissement }}
-                                    <label for="text">Nom de l’établissement</label>
+                                    <label for="text">{% trans "Nom de l’établissement" %}</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     {{ form.pourcentage}}
-                                    <label for="text">Pourcentage</label>
+                                    <label for="text">{% trans "Pourcentage" %}</label>
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="form-floating">
                                     {{ form.motif }}
-                                    <label for="message">Raison d’avoir choisi salama</label>
+                                    <label for="message">{% trans "Raison d’avoir choisi salama" %}</label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-prim w-100 py-3" type="submit">Envoyer</button>
+                                <button class="btn btn-prim w-100 py-3" type="submit">{% trans "Soumettre" %}</button>
                             </div>
                         </div>
                     </form>

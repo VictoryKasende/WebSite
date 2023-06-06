@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title%}Contact{% endblock title %}
-
+{% load i18n %}
 <body>
     
     {% block body %}
@@ -10,11 +10,11 @@
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-10 text-center">
-                    <h1 class="display-3 text-white animated slideInDown">Contact</h1>
+                    <h1 class="display-3 text-white animated slideInDown">{% trans "Contact" %}</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href={% url 'appSalama:home' %}>Accueil</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Contact</li>
+                            <li class="breadcrumb-item"><a class="text-white" href={% url 'appSalama:home' %}>{% trans "Accueil" %}</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">{% trans "Contact" %}</li>
                         </ol>
                     </nav>
                 </div>
@@ -28,13 +28,13 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h2 class="bg-white text-center color-text px-3">Contactez-nous</h6>
+                <h2 class="bg-white text-center color-text px-3">{% trans "Contactez-nous" %}</h6>
             </div>
             <br>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <h5>Institut Technique SALAMA</h5>
-                    <p class="mb-4">Pour tout renseignement n'hésitez pas à nous contacter.</p>
+                    <h5>{% trans "Institut Technique SALAMA" %}</h5>
+                    <p class="mb-4">{% trans "Pour tout renseignement n'hésitez pas à nous contacter." %}</p>
                     <div class="d-flex align-items-center mb-3">
                         <div class="d-flex align-items-center justify-content-center flex-shrink-0 btn-prim" style="width: 50px; height: 50px;">
                             <i class="fa fa-map-marker-alt text-white"></i>
@@ -49,7 +49,7 @@
                             <i class="fa fa-phone-alt text-white"></i>
                         </div>
                         <div class="ms-3">
-                            <h5 class="color-text">Mobile</h5>
+                            <h5 class="color-text">{% trans "Mobile" %}</h5>
                             <p class="mb-0">+243 995 285 024</p>
                         </div>
                     </div>
@@ -80,29 +80,29 @@
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     {{ form.nom }}
-                                    <label for="name">Votre nom</label>
+                                    <label for="name">{% trans "Votre nom" %}</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     {{ form.email }}
-                                    <label for="email">Votre email</label>
+                                    <label for="email">{% trans "Votre email" %}</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
                                     {{ form.sujet }}
-                                    <label for="subject">Sujet</label>
+                                    <label for="subject">{% trans "Sujet" %}</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
                                     {{ form.message }}
-                                    <label for="message">Message</label>
+                                    <label for="message">{% trans "Message" %}</label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-prim w-100 py-3" type="submit">Envoyer Message</button>
+                                <button class="btn btn-prim w-100 py-3" type="submit">{% trans "Envoyer Message" %}</button>
                             </div>
                         </div>
                     </form>

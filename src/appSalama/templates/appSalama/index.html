@@ -1,4 +1,5 @@
 {% extends 'base.html'%}
+{% load i18n %}
 {% load static %}
 {% block title%}Accueil{% endblock title%}
 
@@ -12,12 +13,12 @@
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-sm-10 col-lg-8">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown" > Une école, un avenir.</h5>
-                            <h1 class="display-3 text-white animated slideInDown">Institut Technique SALAMA</h1>
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown" >{%trans 'Une école, un avenir'%}</h5>
+                            <h1 class="display-3 text-white animated slideInDown">{%trans 'Institut Technique SALAMA'%}</h1>
                             
-                            <p class="fs-5 text-white mb-4 pb-2 w-75">Je m'eduque pour en eduquer d'autres</p>
-                            <a href={% url 'appSalama:about'%} class="btn btn-prim py-md-3 px-md-5 me-3 animated slideInLeft">Qui sommes-nous ?</a>
-                            <a href={% url 'appSalama:inscription'%} class="btn btn-light py-md-3 px-md-5 animated slideInRight">Rejoignez-nous maintenant</a>
+                            <p class="fs-5 text-white mb-4 pb-2 w-75">{%trans "Je m'eduque pour en eduquer d'autres"%}</p>
+                            <a href={% url 'appSalama:about'%} class="btn btn-prim py-md-3 px-md-5 me-3 animated slideInLeft">{%trans 'Qui sommes-nous ?'%}</a>
+                            <a href={% url 'appSalama:inscription'%} class="btn btn-light py-md-3 px-md-5 animated slideInRight">{%trans 'Rejoignez-nous maintenant'%}</a>
                         </div>
                     </div>
                 </div>
@@ -25,16 +26,16 @@
         </div>
         <div class="owl-carousel header-carousel position-relative">
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src={% static "appSalama/img/MECANIQUE GENERALE.jpg" %} alt="">
+                <img class="img-fluid" src={%static "appSalama/img/MECANIQUE GENERALE.jpg"%} alt="">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-sm-10 col-lg-8">
-                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown" > Une école, un avenir.</h5>
-                                <h1 class="display-3 text-white animated slideInDown">Institut Technique SALAMA</h1>
-                                <p class="fs-5 text-white mb-4 pb-2 w-75">Je m'eduque pour en eduquer d'autres</p>
-                                <a href={% url 'appSalama:about'%} class="btn btn-prim py-md-3 px-md-5 me-3 animated slideInLeft">Qui sommes-nous ?</a>
-                                <a href={% url 'appSalama:inscription'%} class="btn btn-light py-md-3 px-md-5 animated slideInRight">Rejoignez-nous maintenant</a>
+                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown" >{%trans 'Une école, un avenir'%}</h5>
+                                <h1 class="display-3 text-white animated slideInDown">{%trans 'Institut Technique SALAMA'%}</h1>
+                                <p class="fs-5 text-white mb-4 pb-2 w-75">{%trans "Je m'eduque pour en eduquer d'autres"%}</p>
+                                <a href={% url 'appSalama:about'%} class="btn btn-prim py-md-3 px-md-5 me-3 animated slideInLeft">{%trans 'Qui sommes-nous ?'%}</a>
+                                <a href={% url 'appSalama:inscription'%} class="btn btn-light py-md-3 px-md-5 animated slideInRight">{%trans 'Rejoignez-nous maintenant'%}</a>
                             </div>
                         </div>
                     </div>
@@ -57,10 +58,10 @@
             </div>
             <div class="col-lg-6 text-justify wow fadeInUp" data-wow-delay="0.3s" >
                 <h6 class="section-title bg-white text-start color-text pe-3">A propos de nous</h6>
-                <h1 class="mb-4">Bienvenue à l'Institut Technique SALAMA</h1>
-                <p class="mb-4" style="text-align: justify">L’institut Technique Salama Don Bosco a ouvert ses portes le 11 octobre 1955 sous la dénomination d’école Professionnelle Officielle des Métiers Don Bosco (EPom) en sigle. 92 jeunes étaient accueillis dans les trois sections que comportaient l’école, à savoir la mécanique automobile, la menuiserie et la maçonnerie.</p>
-                <p class="mb-4" style="text-align: justify">C’est pour nous une opportunité de rendre un hommage mérité aux pionniers de cette école. D’abord les 4 premiers salésiens qui sont le P Frans Lehaen, devenu évêque de Sakania Kipushi, qui fut le premier directeur de l’œuvre, le P Albert Snoeckx, premier préfet de l’école, Mr Clément Hlond, coadjuteur mécanicien et le stagiaire, abbé Gerrit van aspert, qualifié en maçonnerie, les 12 moniteurs laïc.</p>
-                <a class="btn btn-prim py-3 px-5 mt-2" href={% url 'appSalama:about' %}>Lire Plus</a>
+                <h1 class="mb-4">{%trans "Bienvenue à l'Institut Technique SALAMA"%}</h1>
+                <p class="mb-4" style="text-align: justify">{%trans "L’institut Technique Salama Don Bosco a ouvert ses portes le 11 octobre 1955 sous la dénomination d’école Professionnelle Officielle des Métiers Don Bosco (EPom) en sigle. 92 jeunes étaient accueillis dans les trois sections que comportaient l’école, à savoir la mécanique automobile, la menuiserie et la maçonnerie."%}</p>
+                <p class="mb-4" style="text-align: justify">{%trans "C’est pour nous une opportunité de rendre un hommage mérité aux pionniers de cette école. D’abord les 4 premiers salésiens qui sont le P Frans Lehaen, devenu évêque de Sakania Kipushi, qui fut le premier directeur de l’œuvre, le P Albert Snoeckx, premier préfet de l’école, Mr Clément Hlond, coadjuteur mécanicien et le stagiaire, abbé Gerrit van aspert, qualifié en maçonnerie, les 12 moniteurs laïc."%}</p>
+                <a class="btn btn-prim py-3 px-5 mt-2" href={% url 'appSalama:about' %}>{%trans 'Lire Plus'%}</a>
             </div>
         </div>
     </div>
@@ -72,8 +73,8 @@
 <div class="container-xxl py-5 category">
     <div class="container">
         <div class="text-center">
-            <h6 class="section-title bg-white text-center color-text px-3">Nos Options</h6>
-            <h1 class="mb-5">six options organisées</h1>
+            <h6 class="section-title bg-white text-center color-text px-3">{% trans "Nos Options" %}</h6>
+            <h1 class="mb-5">{%trans "six options organisées"%}</h1>
         </div>
         <div class="row g-3">
             <div class="col-lg-12 col-md-6">
@@ -83,8 +84,8 @@
                         <a class="position-relative d-block overflow-hidden" href={% url 'appSalama:option' slug=o.slug %}>
                             <img class="img-fluid" src={{o.image.url}} alt="">
                             <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                <h5 class="m-0">{{o.nom|upper}}</h5>
-                                <small class="color-text">{{o.get_cours}} Cours</small>
+                                <h5 class="m-0">{% translate o.nom|upper %}</h5>
+                                <small class="color-text">{%trans o.get_cours %}Cours</small>
                             </div>
                         </a>
                     </div>
@@ -101,8 +102,8 @@
 <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container">
         <div class="text-center">
-            <h6 class="section-title bg-white text-center color-text px-3">Nos formations</h6>
-            <h1 class="mb-5">7<sup>ième</sup>année professionnelle</h1>
+            <h6 class="section-title bg-white text-center color-text px-3">{%trans "Nos formations"%}</h6>
+            <h1 class="mb-5">7<sup>ième</sup>{%trans "année professionnelle"%}</h1>
         </div>
         <div class="owl-carousel testimonial-carousel position-relative">
             {% for f in formations %}
@@ -125,8 +126,8 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="section-title bg-white text-center color-text px-3">Nos articles</h6>
-            <h1 class="mb-5">Nos dernières publications</h1>
+            <h6 class="section-title bg-white text-center color-text px-3">{%trans "Nos articles" %}</h6>
+            <h1 class="mb-5">{% trans "Nos dernières publications" %}</h1>
         </div>
         <div class="row g-4">
             {% for a in derniers %}
@@ -137,9 +138,9 @@
                                 <img class="img-fluid" src={{a.image.url}} alt="">
                             </div>
                             <div class="text-center py-2">
-                                <h4 class="mb-0">{{a.titre}}</h4>
-                                <small>{{a.section1|safe|truncatewords:30}}</small><br>
-                                <a class="btn btn-prim py-2 px-3 mt-2" href={% url 'appSalama:article' slug=a.slug %}>Voir Plus</a>
+                                <h4 class="mb-0">{% translate a.titre %}</h4>
+                                <small>{% translate a.section1|safe|truncatewords:30 %}</small><br>
+                                <a class="btn btn-prim py-2 px-3 mt-2" href={% url 'appSalama:article' slug=a.slug %}>{%trans "Voir Plus"%}</a>
                             </div>
                         </div>
                     </div>

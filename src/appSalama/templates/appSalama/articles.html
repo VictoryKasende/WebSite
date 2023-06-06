@@ -1,18 +1,18 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block title%}Article{% endblock title%}
-
+{% load i18n %}
 {% block body %}
   <!-- Header Start -->
   <div class="container-fluid bg-primary py-5 mb-5 page-header">
       <div class="container py-5">
           <div class="row justify-content-center">
               <div class="col-lg-10 text-center">
-                  <h1 class="display-3 text-white animated slideInDown">Articles</h1>
+                  <h1 class="display-3 text-white animated slideInDown">{% trans "Articles" %}</h1>
                   <nav aria-label="breadcrumb">
                       <ol class="breadcrumb justify-content-center">
-                          <li class="breadcrumb-item"><a class="text-white" href={% url 'appSalama:home'%}>Accueil</a></li>
-                          <li class="breadcrumb-item text-white active" aria-current="page">Articles</li>
+                          <li class="breadcrumb-item"><a class="text-white" href={% url 'appSalama:home'%}>{% trans "Accueil" %}</a></li>
+                          <li class="breadcrumb-item text-white active" aria-current="page">{% trans "Articles" %}</li>
                       </ol>
                   </nav>
               </div>
@@ -34,7 +34,7 @@
                 
                         <div class="sidebar sidebar-left">
                           <div class="widget recent-posts">
-                            <h3 class="widget-title">DERNIERS ARTICLES</h3>
+                            <h3 class="widget-title">{% trans "DERNIERS ARTICLES" %}</h3>
                             <ul class="list-unstyled">
                               {% for dernier in derniers %}
                                 <li class="d-flex align-items-center">
@@ -53,7 +53,7 @@
                           </div><!-- Recent post end -->
                 
                           <div class="widget">
-                            <h3 class="widget-title">CATÉGORIES</h3>
+                            <h3 class="widget-title">{% trans "CATÉGORIES" %}</h3>
                             <ul class="arrow nav nav-tabs">
                               {% for art in articles %}
                               <li>
@@ -68,7 +68,7 @@
                           </div><!-- Categories end -->
                 
                           <div class="widget">
-                            <h3 class="widget-title">Archives </h3>
+                            <h3 class="widget-title">{% trans "Archives" %}</h3>
                             <ul class="arrow nav nav-tabs">
                               {% for archive in archives %}
                               <li>
